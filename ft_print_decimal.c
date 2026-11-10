@@ -1,5 +1,16 @@
-#include <unistd.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_decimal.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/10 18:27:06 by obenyahy          #+#    #+#             */
+/*   Updated: 2026/11/10 18:27:07 by obenyahy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 static	int	ft_putnbr(long a)
 {
@@ -12,13 +23,12 @@ static	int	ft_putnbr(long a)
 	return (count);
 }
 
-int	ft_print_decimal(int n)
+int	ft_print_decimal(va_list *args)
 {
 	long	a;
 	int		len;
 
-	//a = va_arg(*args, int);
-	a = n;
+	a = va_arg(*args, int);
 	len = 0;
 	if (a < 0)
 	{
@@ -27,17 +37,4 @@ int	ft_print_decimal(int n)
 		len++;
 	}
 	return (len + ft_putnbr(a));
-}
-
-int main ()
-{
-	int a;
-	int b;
-
-	a = ft_print_decimal(-1029019);
-	printf("\n");
-	b = printf("%d", -1029019);
-
-	printf("\n%d - %d", a, b);
-	return (0);
 }
