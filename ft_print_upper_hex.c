@@ -1,4 +1,18 @@
-static	int	print_hex(unsigned long a)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_upper_hex.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/10 18:25:55 by obenyahy          #+#    #+#             */
+/*   Updated: 2026/11/10 18:25:57 by obenyahy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static	int	print_hex(unsigned int a)
 {
 	int	count;
 
@@ -11,9 +25,9 @@ static	int	print_hex(unsigned long a)
 
 int	ft_print_adress(va_list *args)
 {
-	unsigned long	n;
+	unsigned int	n;
 
-	n = (unsigned long)va_arg(*args, void *);
+	n = va_arg(*args, unsigned int);
 	return (print_hex(n));
 }
 

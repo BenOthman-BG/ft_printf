@@ -1,5 +1,16 @@
-#include <unistd.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_unsigned_decimal.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/10 18:27:35 by obenyahy          #+#    #+#             */
+/*   Updated: 2026/11/10 18:27:37 by obenyahy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 static	int	ft_putnbr(unsigned int a)
 {
@@ -16,19 +27,6 @@ int	ft_print_unsigned_decimal(unsigned int n)
 {
 	unsigned int	a;
 
-	//a = va_arg(*args, unsigned int);
-	return (ft_putnbr(n));
-}
-
-int main ()
-{
-	int a;
-	int b;
-
-	a = ft_print_decimal(-1);
-	printf("\n");
-	b = printf("%u", -1);
-
-	printf("\n%d - %d", a, b);
-	return (0);
+	a = va_arg(*args, unsigned int);
+	return (ft_putnbr(a));
 }

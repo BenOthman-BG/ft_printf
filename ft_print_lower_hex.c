@@ -1,4 +1,18 @@
-static	int	print_hex(unsigned long a)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_lower_hex.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/10 18:26:10 by obenyahy          #+#    #+#             */
+/*   Updated: 2026/11/10 18:26:12 by obenyahy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static	int	print_hex(unsigned int a)
 {
 	int	count;
 
@@ -9,10 +23,10 @@ static	int	print_hex(unsigned long a)
 	return (count);
 }
 
-int	ft_print_adress(va_list *args)
+int	ft_print_lower_address(va_list *args)
 {
-	unsigned long	n;
+	unsigned int	n;
 
-	n = (unsigned long)va_arg(*args, void *);
+	n = va_arg(*args, unsigned int);
 	return (print_hex(n));
 }

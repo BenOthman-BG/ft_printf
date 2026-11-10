@@ -1,28 +1,41 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/09 08:45:22 by obenyahy          #+#    #+#             */
+/*   Updated: 2026/11/10 18:16:53 by obenyahy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_printf(const char *s, ...)
+#include "ft_printf.h"
+
+int	ft_printf(char const *s, ...)
 {
-	int i;
-	va_list	args;
+	int	total_len;
+	va_list args;
+	int	i;
+	int	(*f[256])(va_list *);
 
-	va_start(args, s);
+	f['c'] = ft_print_char;
+	f['s'] = ft_print_string;
+	f['p'] = ft_print_adress;
+	f['d'] = ft_print_decimal;
+	f['i'] = ft_print_decimal;
+	f['u'] = ft_print_unsigned_decimal;
+	f['x'] = ft_print_lower_hex;
+	f['X'] = ft_print_upper_hex;
+	f['%'] = ft_print_char;
 	i = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == '%')
-		{
-			i++;
-			if (s[i] == 'c')
-				total_len = total_len + ft_printf_char(va_arg(args, int));
-			else if (s[i] == 's')
-				total_len = total_len + ft_print_string(va_arg(args, char *));
-			else if (s[i] == 'p')
-				total_len = total_len + ft_print_adress(va_arg(args, void *));
-			else if (s[i] == 'd' || s[i] == 'i')
-				total_len = total_len + ft_print_decimal(va_arg(args, int));
-			else if (s[i] == 'x')
-				toral_len = total_len + ft_print_lower_hex(va_arg(args, unsigned int));
-
-		}
+			total_len = total_len + f[s[i + 1]](&args);
+		else
+			total_len = total_len + f[s[i]];
+		i++;
 	}
+	return (total_len);
 }
