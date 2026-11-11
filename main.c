@@ -11,88 +11,31 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <limits.h>
+#include <stdio.h>
+#include <unistd.h>
 
-// النموذج الأولي (Prototype) لدالتك
-int ft_printf(const char *format, ...);
-
-int main(void)
+int main()
 {
-    int ret1;
-    int ret2;
-    char *null_str = NULL;
-    int num = 42;
+    int ret_orig;
+    int ret_mine;
 
-    printf("\n==========================================\n");
-    printf("         FT_PRINTF MANDATORY TEST         \n");
-    printf("==========================================\n");
+	//setbuf(stdout, NULL);
 
-    /* ------------------------------------------------ */
-    printf("\n[1] Testing Characters (%%c):\n");
-    ret1 = printf("Original : %c | %c | %c\n", 'A', '0', 0);
-    ret2 = ft_printf("ft_printf: %c | %c | %c\n", 'A', '0', 0);
-    printf("-> Return : Orig = %d, ft = %d\n", ret1, ret2);
-    if (ret1 == ret2) printf("✅ OK\n"); else printf("❌ KO\n");
+    /close(1); 
+    int i;
+    i = 0;
+    while (i < 10000)
+    {
+        printf("i");
+        i++;
+    }
+    ft_printf("Hello Worod");
+    write(1,"\n",1);
+    //printf("fkjenfkejnf\n");
 
-    /* ------------------------------------------------ */
-    printf("\n[2] Testing Strings (%%s):\n");
-    ret1 = printf("Original : %s | %s | %s\n", "Hello", "", null_str);
-    ret2 = ft_printf("ft_printf: %s | %s | %s\n", "Hello", "", null_str);
-    printf("-> Return : Orig = %d, ft = %d\n", ret1, ret2);
-    if (ret1 == ret2) printf("✅ OK\n"); else printf("❌ KO\n");
 
-    /* ------------------------------------------------ */
-    printf("\n[3] Testing Pointers (%%p):\n");
-    ret1 = printf("Original : %p | %p\n", &num, null_str);
-    ret2 = ft_printf("ft_printf: %p | %p\n", &num, null_str);
-    printf("-> Return : Orig = %d, ft = %d\n", ret1, ret2);
-    if (ret1 == ret2) printf("✅ OK\n"); else printf("❌ KO\n");
-
-    /* ------------------------------------------------ */
-    printf("\n[4] Testing Decimals/Integers (%%d / %%i):\n");
-    ret1 = printf("Original : %d | %i | %d | %d\n", 0, -42, INT_MAX, INT_MIN);
-    ret2 = ft_printf("ft_printf: %d | %i | %d | %d\n", 0, -42, INT_MAX, INT_MIN);
-    printf("-> Return : Orig = %d, ft = %d\n", ret1, ret2);
-    if (ret1 == ret2) printf("✅ OK\n"); else printf("❌ KO\n");
-
-    /* ------------------------------------------------ */
-    printf("\n[5] Testing Unsigned (%%u):\n");
-    ret1 = printf("Original : %u | %u | %u\n", 0, 42, UINT_MAX);
-    ret2 = ft_printf("ft_printf: %u | %u | %u\n", 0, 42, UINT_MAX);
-    printf("-> Return : Orig = %d, ft = %d\n", ret1, ret2);
-    if (ret1 == ret2) printf("✅ OK\n"); else printf("❌ KO\n");
-
-    /* ------------------------------------------------ */
-    printf("\n[6] Testing Hexadecimal (%%x / %%X):\n");
-    ret1 = printf("Original : %x | %X | %x | %X | %x\n", 0, 0, 255, 255, UINT_MAX);
-    ret2 = ft_printf("ft_printf: %x | %X | %x | %X | %x\n", 0, 0, 255, 255, UINT_MAX);
-    printf("-> Return : Orig = %d, ft = %d\n", ret1, ret2);
-    if (ret1 == ret2) printf("✅ OK\n"); else printf("❌ KO\n");
-
-    /* ------------------------------------------------ */
-    printf("\n[7] Testing Percent Sign (%%%%):\n");
-    ret1 = printf("Original : %% | %%%% | %%%%%%%%%%\n");
-    ret2 = ft_printf("ft_printf: %% | %%%% | %%%%%%%%%%\n");
-    printf("-> Return : Orig = %d, ft = %d\n", ret1, ret2);
-    if (ret1 == ret2) printf("✅ OK\n"); else printf("❌ KO\n");
-
-    /* ------------------------------------------------ */
-    printf("\n[8] Testing Mix and Edge Cases:\n");
-    ret1 = printf("Original : %s is %d years old, pointer %p, rate %d%%\n", "Othman", 20, &num, 100);
-    ret2 = ft_printf("ft_printf: %s is %d years old, pointer %p, rate %d%%\n", "Othman", 20, &num, 100);
-    printf("-> Return : Orig = %d, ft = %d\n", ret1, ret2);
-    if (ret1 == ret2) printf("✅ OK\n"); else printf("❌ KO\n");
-
-    /* ------------------------------------------------ */
-    printf("\n[9] The \"Lonely Percent\" Test:\n");
-    ret1 = printf("Original : Hello %");
-    printf("\n"); // سطر جديد للتوضيح
-    ret2 = ft_printf("ft_printf: Hello %");
-    printf("\n"); // سطر جديد للتوضيح
-    printf("-> Return : Orig = %d, ft = %d\n", ret1, ret2);
-    if (ret1 == ret2) printf("✅ OK\n"); else printf("❌ KO\n");
-
-    printf("\n==========================================\n");
-
+    //dprintf(2, "Original return: %d\n", ret_orig); // سيطبع -1
+    //dprintf(2, "My return: %d\n", ret_mine);       // يجب أن يطبع -1 أيضاً
+    
     return (0);
 }
