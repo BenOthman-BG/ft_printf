@@ -6,7 +6,7 @@
 /*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 18:27:35 by obenyahy          #+#    #+#             */
-/*   Updated: 2026/11/10 18:27:37 by obenyahy         ###   ########.fr       */
+/*   Updated: 2026/11/11 09:19:47 by obenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	int	ft_putnbr(unsigned int a)
 	return (count);
 }
 
-int	ft_print_unsigned_decimal(unsigned int n)
+int	ft_print_unsigned_decimal(va_list *args)
 {
 	unsigned int	a;
 

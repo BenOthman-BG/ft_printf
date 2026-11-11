@@ -6,7 +6,7 @@
 /*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 18:28:44 by obenyahy          #+#    #+#             */
-/*   Updated: 2026/11/10 18:28:46 by obenyahy         ###   ########.fr       */
+/*   Updated: 2026/11/11 09:11:35 by obenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	int	print_hex(unsigned long a)
 	return (count);
 }
 
-int	ft_print_adress(va_list *args)
+int	ft_print_address(va_list *args)
 {
 	unsigned long	n;
 

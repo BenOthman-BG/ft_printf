@@ -6,7 +6,7 @@
 /*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 18:27:06 by obenyahy          #+#    #+#             */
-/*   Updated: 2026/11/10 18:27:07 by obenyahy         ###   ########.fr       */
+/*   Updated: 2026/11/11 11:43:38 by obenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static	int	ft_putnbr(long a)
 
 int	ft_print_decimal(va_list *args)
 {
-	long	a;
+	int	a;
 	int		len;
 
 	a = va_arg(*args, int);
