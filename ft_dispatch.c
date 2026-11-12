@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_upper_hex.c                               :+:      :+:    :+:   */
+/*   ft_dispatch.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/10 18:25:55 by obenyahy          #+#    #+#             */
-/*   Updated: 2026/11/11 09:25:34 by obenyahy         ###   ########.fr       */
+/*   Created: 2026/11/12 11:13:22 by obenyahy          #+#    #+#             */
+/*   Updated: 2026/11/12 14:00:17 by obenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	print_hex(unsigned int a)
+void	dispatch_table(t_printer *table)
 {
-	int	count;
+	int	i;
 
-	count = 0;
-	if (a /  16 > 0)
-		count += print_hex(a / 16);
-	count += write(1, &"0123456789ABCDEF"[a % 16], 1);
-	return (count);
+	i = 0;
+	while (i < 256)
+	{
+		f[i] = NULL;
+		i++;
+	}
+	table['c'] = ft_print_c;
+	table['s'] = ft_print_s;
+	table['p'] = ft_print_addr;
+	table['d'] = ft_print_d;
+	table['i'] = ft_print_d;
+	table['u'] = ft_print_u;
+	table['x'] = ft_print_lower_x;
+	table['X'] = ft_print_upper_x;
+	table['%'] = ft_print_pct;
 }
-
-int	ft_print_upper_hex(va_list *args)
-{
-	unsigned int	n;
-
-	n = va_arg(*args, unsigned int);
-	return (print_hex(n));
-}
-

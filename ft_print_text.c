@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_string.c                                  :+:      :+:    :+:   */
+/*   ft_print_text.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/11/10 18:26:39 by obenyahy          #+#    #+#             */
-/*   Updated: 2026/11/10 18:26:41 by obenyahy         ###   ########.fr       */
+/*   Created: 2026/11/12 09:40:39 by obenyahy          #+#    #+#             */
+/*   Updated: 2026/11/12 14:00:44 by obenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_string(va_list *args)
+int	print_c(va_list *args)
 {
-	int	i;
+	char	c;
+
+	c = (char)va_arg(*args, int);
+	return (write(1, &c, 1));
+}
+
+int	print_s(va_list *args)
+{
+	int	len;
 	char *s;
 
 	s = va_arg(*args, char *);
 	if (s == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	i = 0;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
+		return (write(1, "(null)", 6));
+	len = 0;
+	while (s[len])
+		len++;
+	return (write(1, s, len));
+}
+
+int	print_pct(va_list *args)
+{
+	(void)args;
+	return (write(1, "%", 1));
 }

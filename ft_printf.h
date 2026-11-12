@@ -6,7 +6,7 @@
 /*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/10 18:27:21 by obenyahy          #+#    #+#             */
-/*   Updated: 2026/11/11 09:12:25 by obenyahy         ###   ########.fr       */
+/*   Updated: 2026/11/12 13:59:32 by obenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,20 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+typedef int (*t_printer)(va_list *);
+
 int	ft_printf(const char *s, ...);
-int	ft_print_char(va_list *args);
-int	ft_print_string(va_list *args);
-int	ft_print_address(va_list *args);
-int	ft_print_decimal(va_list *args);
-int	ft_print_unsigned_decimal(va_list *args);
-int	ft_print_lower_hex(va_list *args);
-int	ft_print_upper_hex(va_list *args);
+void	dispatch_table(t_printer *table);
+
+int	print_c(va_list *args);
+int	print_s(va_list *args);
+int	print_pct(va_list *args);
+
+int	print_d(va_list *args);
+int	print_u(va_list *args);
+
+int	print_addr(va_list *args);
+int	print_lower_x(va_list *args);
+int	print_upper_x(va_list *args);
 
 #endif

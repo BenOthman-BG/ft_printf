@@ -2,8 +2,7 @@ NAME = libftprintf.a
 CC = cc
 HEADER = ft_printf.h
 CFLAGS = -Wall -Werror -Wextra
-SRCS = ft_printf.c ft_print_char.c ft_print_string.c ft_print_address.c ft_print_decimal.c \
-       ft_print_unsigned_decimal.c ft_print_lower_hex.c ft_print_upper_hex.c
+SRCS = ft_printf.c ft_dispatch.c ft_print_text.c ft_print_nums.c ft_print_hex.c
 
 OBJS = $(SRCS:.c=.o)
 
