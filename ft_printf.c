@@ -6,7 +6,7 @@
 /*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 08:45:22 by obenyahy          #+#    #+#             */
-/*   Updated: 2026/11/12 14:01:52 by obenyahy         ###   ########.fr       */
+/*   Updated: 2026/11/12 14:30:18 by obenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_help(char const *s, va_list *args, t_printer *table)
 	int	i;
 	int	count;
 	int	tmp;
-	
+
 	i = -1;
 	count = 0;
 	while (s[++i] != '\0')
@@ -37,9 +37,9 @@ int	ft_help(char const *s, va_list *args, t_printer *table)
 
 int	ft_printf(char const *s, ...)
 {
-	int	count;
-	va_list args;
-	t_printer table[256];
+	int			count;
+	va_list		args;
+	t_printer	table[256];
 
 	if (!s)
 		return (-1);

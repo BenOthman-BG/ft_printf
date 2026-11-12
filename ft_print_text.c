@@ -22,8 +22,8 @@ int	print_c(va_list *args)
 
 int	print_s(va_list *args)
 {
-	int	len;
-	char *s;
+	int		len;
+	char	*s;
 
 	s = va_arg(*args, char *);
 	if (s == NULL)

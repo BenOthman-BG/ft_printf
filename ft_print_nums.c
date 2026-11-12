@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static	int	ft_putnbr(long a)
+static int	ft_putnbr(long a)
 {
 	int	count;
 
@@ -53,4 +53,3 @@ int	print_u(va_list *args)
 {
 	return (ft_putnbr(va_arg(*args, unsigned int)));
 }
-

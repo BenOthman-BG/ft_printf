@@ -12,13 +12,13 @@
 
 #include "ft_printf.h"
 
-static	int	print_hex(size_t a, char *base)
+static int	print_hex(size_t a, char *base)
 {
 	int	count;
 
 	count = 0;
 	if (a >= 16)
-	{	
+	{
 		count = print_hex(a / 16, base);
 		if (count == -1)
 			return (-1);
