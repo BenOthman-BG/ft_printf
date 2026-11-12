@@ -6,7 +6,7 @@
 /*   By: obenyahy <obenyahy@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 11:13:22 by obenyahy          #+#    #+#             */
-/*   Updated: 2026/11/12 14:00:17 by obenyahy         ###   ########.fr       */
+/*   Updated: 2026/11/12 14:07:47 by obenyahy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void	dispatch_table(t_printer *table)
 	i = 0;
 	while (i < 256)
 	{
-		f[i] = NULL;
+		table[i] = NULL;
 		i++;
 	}
-	table['c'] = ft_print_c;
-	table['s'] = ft_print_s;
-	table['p'] = ft_print_addr;
-	table['d'] = ft_print_d;
-	table['i'] = ft_print_d;
-	table['u'] = ft_print_u;
-	table['x'] = ft_print_lower_x;
-	table['X'] = ft_print_upper_x;
-	table['%'] = ft_print_pct;
+	table['c'] = print_c;
+	table['s'] = print_s;
+	table['p'] = print_addr;
+	table['d'] = print_d;
+	table['i'] = print_d;
+	table['u'] = print_u;
+	table['x'] = print_lower_x;
+	table['X'] = print_upper_x;
+	table['%'] = print_pct;
 }
