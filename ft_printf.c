@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static int	ft_help(char const *s, va_list *args, t_printer *table)
+static int	ft_help(const char *s, va_list *args, t_printer *table)
 {
 	int	i;
 	int	count;
